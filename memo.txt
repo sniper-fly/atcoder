@@ -1,0 +1,22 @@
+コンテスト用ディレクトリの作成
+コンテストURLの、末尾を入力する
+ex)
+acc new abc101
+abc101という名前のディレクトリができる
+
+ファイルの提出
+ex)
+acc submit main.cpp
+ディレクトリを移動して作ったmain.cppを選択して提出する
+
+次の問題のサンプルダウンロード
+acc add
+対話的に選択する。現在のディレクトリにbのディレクトリなどができる
+
+サンプルのテスト
+oj t -d <dirname tests>
+oj t
+a
+
+http://tatamo.81.la/blog/2018/12/07/atcoder-cli-tutorial/
+atcoder-cli tutorial
