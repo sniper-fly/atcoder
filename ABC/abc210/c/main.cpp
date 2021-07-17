@@ -26,29 +26,35 @@ int main()
 
     ll N, K;
     cin >> N >> K;
-    map<ll, bool> candies;
-    ll ct = 0;
-    ll candy;
+
+    map<ll, ll> candies;
     static ll candy_ar[300010];
 
     rep(i, N) {
-        cin >> candy;
-        if (candies[candy] == true) {
-            candy_ar[i] = ct;
-        } else {
-            candies[candy] = true;
-            ++ct;
-            candy_ar[i] = ct;
+        cin >> candy_ar[i];
+    }
+    ll i = 0;
+    ll kind = 0;
+    ll max_kind = 0;
+    for (; i < K; ++i) {
+        candies[candy_ar[i]]++;
+        if (candies[candy_ar[i]] == 1) {
+            ++kind;
         }
+        max_kind = max(kind, max_kind);
     }
 
-    ll max_diff = 0;
-    ll diff = 0;
-    for(ll i = 0; i + K - 1 < N; ++i) {
-        diff = candy_ar[i + (K - 1)] - candy_ar[i];
-        if (max_diff < diff) {
-            max_diff = diff;
+    for (; i < N; ++i) {
+        candies[candy_ar[i - K]]--;
+        if (candies[candy_ar[i - K]] == 0) {
+            --kind;
         }
+
+        candies[candy_ar[i]]++;
+        if (candies[candy_ar[i]] == 1) {
+            ++kind;
+        }
+        max_kind = max(kind, max_kind);
     }
-    cout << max_diff << endl;
+    cout << max_kind << endl;
 }
