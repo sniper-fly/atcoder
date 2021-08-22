@@ -27,5 +27,12 @@ int main()
     string S;
     ll K;
     cin >> S >> K;
-    
+    bool res;
+    ll ct = 0;
+
+    sort(all(S));
+    rep(i, K - 1) {
+        next_permutation(all(S));
+    }
+    std::cout << S << std::endl;
 }
